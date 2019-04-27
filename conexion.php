@@ -10,7 +10,7 @@ $dsn = "$driver:dbname=$base;host=$host";
 
 try {
     $cnx = new PDO($dsn, $usuario, $contraseña);
-    echo 'hola ara' ;
+    //echo 'hola ara' ;
 } catch (PDOException $e) {
     echo 'Falló la conexión: ' . $e->getMessage();
 }

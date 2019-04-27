@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Persona</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="persona.js"></script>
+	<script type="text/javascript">
+		window.onload = inicio();
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Persona</h1>
+
+		<nav class="navbar navbar-default">
+			<button class="btn btn-primary" data-toggle="modal" data-target="#formulario">Nuevo</button>
+		</nav>
+
+		<div id="formulario" class="modal fade" role="dialog">
+
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<!--Formulario oculto para seleccionar entre editar y guardar-->
+					<input type="hidden" id="idpersona" name="idpersona" value="">
+
+					<div class="modal-head">
+						<h3>Nueva Persona</h3>
+					</div>
+
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="txtnombres">Nombres</label>
+							<input class="form-control" type="text" name="txtnombres" id="txtnombres">
+						</div>
+
+						<div class="form-group">
+							<label for="txtape">Apellidos</label>
+							<input class="form-control" type="text" name="txtape" id="txtape">
+						</div>
+
+						<div class="form-group">
+							<label for="txtcorreo">Correo</label>
+							<input class="form-control" type="text" name="txtcorreo" id="txtcorreo">
+						</div>
+
+						<button id="btnguardar" onclick="guardar()" class="btn btn-primary">Guardar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="divlista" class="container">
+			<table class='table table-striped'>
+				<thead class="thead-dark">
+					<tr>
+						<th>Id</th>
+						<th>Nombres</th>
+						<th>Apellidos</th>
+						<th>Correo</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody id="tabla1">
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
