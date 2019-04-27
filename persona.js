@@ -1,12 +1,12 @@
 function inicio() {
-	lista();
+	lista(1);
 }
 
-function lista() {
+function lista(pag) {
 	$.ajax({
 		type: "POST",
 		url: "lista.php",
-		data: "",
+		data: { "pagina": pag },
 		success: function (response) {
 			//console.log(response);
 			$("#tabla1").html(response);
@@ -14,11 +14,11 @@ function lista() {
 	});
 }
 
-function guardar(){
+function guardar() {
 	var id = $("#idpersona").val();
-	if(id>0){
+	if (id > 0) {
 		actualizar();
-	}else{
+	} else {
 		insertar();
 	}
 }
@@ -87,7 +87,7 @@ function editar(id) {
 
 }
 
-function actualizar(){
+function actualizar() {
 	var id = $("#idpersona").val();
 	var nom = $("#txtnombres").val();
 	var ape = $("#txtape").val();
@@ -95,7 +95,7 @@ function actualizar(){
 	$.ajax({
 		type: "POST",
 		url: "actualizar.php",
-		data: {"id_persona":id, "nombres": nom, "apellidos": ape, "correo": correo },
+		data: { "id_persona": id, "nombres": nom, "apellidos": ape, "correo": correo },
 		success: function (response) {
 			console.log(response);
 			if (response == 0) {
@@ -105,6 +105,17 @@ function actualizar(){
 			} else {
 				alert("Error al actualizar los datos!");
 			}
+		}
+	});
+}
+
+function paginacion(){
+	$.$.ajax({
+		type: "POST",
+		url: "paginacion.php",
+		data: {"pagina":pag},
+		success: function (response) {
+			$(#tabla1)
 		}
 	});
 }

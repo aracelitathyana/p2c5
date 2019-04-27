@@ -1,6 +1,9 @@
 <?php
 require_once("conexion.php"); // cada vez que se abre esta pestaña va a requerir de la conexion a la bd
-$sql="select * from persona"; //guarda los datos en la variable "sql" 
+$pagina=$_POST['pagina'];
+$cantidad=10;
+$inicio=($pagina-1)*10;
+$sql="select * from persona limit $inicio,$cantidad"; //guarda los datos en la variable "sql" 
 $result=$cnx->query($sql); //ejecuta la sentencia sql 
 
 while ($reg=$result->fetchObject()) {
